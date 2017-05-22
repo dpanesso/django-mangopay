@@ -4,6 +4,7 @@ python:
 env:
   - DJANGO_VERSION=1.8.0
   - DJANGO_VERSION=1.9.0
+  - DJANGO_VERSION=1.10.6
 install:
   - pip install -q Django~=$DJANGO_VERSION --use-mirrors
   - pip install -r requirements_test.txt
