@@ -1,6 +1,10 @@
 import urllib2
 import base64
-import jsonfield
+try:
+    from jsonfield import JSONField
+except ImportError:
+    from django.contrib.postgres.fields import JSONField
+
 from datetime import datetime
 from decimal import Decimal, ROUND_FLOOR
 
@@ -514,7 +518,7 @@ class MangoPayPayIn(models.Model):
 
     # Pay in via bank wire
     wire_reference = models.CharField(null=True, blank=True, max_length=50)
-    mangopay_bank_account = jsonfield.JSONField(null=True, blank=True)
+    mangopay_bank_account = JSONField(null=True, blank=True)
 
     def _get_payment_details(self):
         raise NotImplemented
